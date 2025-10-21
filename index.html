@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ...existing content... -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tank with Scroll Cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script type="importmap">
+  {
+    "imports": {
+      // no external libs needed for this simple demo
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- ...existing content... -->
+  <header class="scorebar" aria-live="polite"><span id="score">Score: 0</span>
+    <div id="cz-clock" class="cz-clock" aria-live="polite" aria-atomic="true">
+      <div id="cz-local">—</div>
+      <div id="cz-iso">—</div>
+      <div id="cz-unix">—</div>
+    </div>
+  </header>
+  <main class="stage" aria-label="Tank scene with card shelf">
+    <section class="tank-wrap" aria-hidden="false">
+      <button class="tank-button" aria-label="Click tank to add score">
+        <!-- Simple inline SVG tank -->
+        <svg class="tank" viewBox="0 0 240 120" role="img" aria-label="Tank">
+          <rect x="40" y="50" width="120" height="35" rx="6" fill="#2f3b45"/>
+          <rect x="100" y="30" width="70" height="25" rx="4" fill="#3d4a56"/>
+          <rect x="165" y="38" width="55" height="10" rx="3" fill="#3d4a56"/>
+          <circle cx="60" cy="92" r="12" fill="#1e272e"/>
+          <circle cx="95" cy="92" r="12" fill="#1e272e"/>
+          <circle cx="130" cy="92" r="12" fill="#1e272e"/>
+          <circle cx="165" cy="92" r="12" fill="#1e272e"/>
+          <circle cx="200" cy="92" r="12" fill="#1e272e"/>
+        </svg>
+      </button>
+    </section>
+
+    <section class="shelf" aria-label="Card shelf with rope top">
+      <div class="rope" aria-hidden="true"></div>
+      <div class="cards" aria-live="polite">
+        <article class="card">
+          <h3 class="card-title">Military Grandma</h3>
+          <img id="grandma" class="card-avatar" src="grandma.png" alt="Grandma wearing a military helmet">
+          <p class="card-price" id="grandma-price">Price: 25</p>
+          <p id="grandma-owned" class="card-owned">Owned: 0</p>
+        </article>
+        <article class="card">Card 2</article>
+        <article class="card">Card 3</article>
+        <article class="card">Card 4</article>
+        <article class="card">Card 5</article>
+        <!-- More cards appended via script -->
+      </div>
+    </section>
+  </main>
+  <audio id="shot-audio" src="bbc_gunfire---_07034223.mp3" preload="auto"></audio>
+  <audio id="cash-audio" src="cash-register-purchase-87313.mp3" preload="auto"></audio>
+  <!-- new background chill music (will be controlled from script) -->
+  <audio id="bg-audio" src="good-night-lofi-cozy-chill-music-160166.mp3" preload="metadata"></audio>
+  <audio id="pop-audio" src="pop-402324.mp3" preload="auto"></audio>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
